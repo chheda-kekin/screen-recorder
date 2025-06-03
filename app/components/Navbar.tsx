@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React from "react";
 
+import { appName } from "@/constants";
+
 const user = {};
 
 const Navbar = () => {
@@ -16,7 +18,7 @@ const Navbar = () => {
             <nav>
                 <Link href="/">
                     <Image src="/assets/icons/logo.svg" alt="Logo" width={32} height={32} />
-                    <h1>SnapShare</h1>
+                    <h1>{ appName }</h1>
                 </Link>
 
                 {user && (<figure>
