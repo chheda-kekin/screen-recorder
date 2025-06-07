@@ -1,3 +1,4 @@
+import { signIn } from "@/auth";
 import { appName } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -20,11 +21,16 @@ const Page = () => {
                             <h1>{appName}</h1>
                         </Link>
                         <p>Create & share your very first <span>{appName} video </span>in no time!</p>
-                        <button>
-                            <Image src="/assets/icons/google.svg" alt="Google logo" width={22} 
-                            height={22} />
-                            <span>Sign in with Google</span>
-                        </button>
+                        <form action={async ()=>{
+                            'use server'
+                            await signIn("okta")
+                        }}>
+                            <button type="submit">
+                                <Image src="/assets/icons/facebook.svg" alt="Facebook logo" width={22} 
+                                height={22} />
+                                <span>Sign in</span>
+                            </button>
+                        </form>
                     </section>
                 </aside>
             </main>

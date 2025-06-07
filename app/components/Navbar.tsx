@@ -17,7 +17,7 @@ const Navbar = () => {
         <header className="navbar">
             <nav>
                 <Link href="/">
-                    <Image src="/assets/icons/logo.svg" alt="Logo" width={32} height={32} />
+                    <Image src="/assets/icons/photo-camera.svg" alt="Logo" width={32} height={32} />
                     <h1>{ appName }</h1>
                 </Link>
 

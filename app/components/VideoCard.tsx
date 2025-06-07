@@ -15,20 +15,12 @@ type VideoDetails = {
     isPublic: boolean;
     views: number;
     thumbnailSrc: string;
-    createdOn: number;
+    createdOn: string;
 }
 
 const VideoCard: React.FC<VideoDetails> = (props) => {
 
     const router = useRouter();
-
-    const createdOnDate = new Date(props.createdOn);
-    const createdOnDateStr = createdOnDate.toLocaleDateString("en-IN", {
-        timeZone: "Asia/Kolkata",
-        year: "numeric",
-        month: "short",
-        day: "numeric"
-    });
 
     return (
         <>
@@ -48,7 +40,7 @@ const VideoCard: React.FC<VideoDetails> = (props) => {
                             <span>{props.views}</span>
                         </aside>
                     </div>
-                    <h2>{props.title} - {createdOnDateStr}</h2>
+                    <h2>{props.title} - {props.createdOn}</h2>
                 </article>
                 <button className="copy-btn" onClick={() => { router.push("/video/copy") }}>
                     <Image src="/assets/icons/link.svg" alt="Copy video link icon" width={18} height={18} />
