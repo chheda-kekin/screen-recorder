@@ -1,4 +1,4 @@
-import { signIn } from "@/auth";
+// import { signIn } from "@/auth";
 import { appName } from "@/constants";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Page = () => {
                         <p>Create & share your very first <span>{appName} video </span>in no time!</p>
                         <form action={async ()=>{
                             'use server'
-                            await signIn("okta")
+                            // await signIn("okta")
                         }}>
                             <button type="submit">
                                 <Image src="/assets/icons/facebook.svg" alt="Facebook logo" width={22} 
