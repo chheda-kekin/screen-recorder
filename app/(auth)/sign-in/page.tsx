@@ -1,8 +1,11 @@
 // import { signIn } from "@/auth";
 import { appName } from "@/constants";
+import { createAuthClient } from "better-auth/client";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
+const authClient = createAuthClient();
 
 const Page = () => {
     return (
@@ -21,16 +24,18 @@ const Page = () => {
                             <h1>{appName}</h1>
                         </Link>
                         <p>Create & share your very first <span>{appName} video </span>in no time!</p>
-                        <form action={async ()=>{
-                            'use server'
-                            // await signIn("okta")
-                        }}>
+                            <form action={async () => {
+                                "use server"
+                                await authClient.signIn.social({
+                                    provider: "google"
+                                })
+                            }}></form>
                             <button type="submit">
                                 <Image src="/assets/icons/facebook.svg" alt="Facebook logo" width={22} 
                                 height={22} />
                                 <span>Sign in</span>
                             </button>
-                        </form>
+                        
                     </section>
                 </aside>
             </main>
